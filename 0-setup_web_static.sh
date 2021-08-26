@@ -20,8 +20,8 @@ sudo ln -sf data/web_static/releases/test/ /data/web_static/current
 sudo chown -R ubuntu:ubuntu /data/
 
 #update nginx configuration
-sudo echo 'Holberton School' > /var/www/html/index.nginx-debian.html
-sudo echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
+sudo echo 'Holberton School' |sudo tee /var/www/html/index.nginx-debian.html
+sudo echo "Ceci n'est pas une page" |sudo tee /usr/share/nginx/html/custom_404.html
 sudo sed -i "/listen 80 default_server/a \\\terror_page 404 /custom_404.html;\n\tlocation = /custom_404.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t\t}" /etc/nginx/sites-available/default
 sudo sed -i "/listen 80 default_server/a \\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default
 sudo sed -i "/:80 default_server/ a \\\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current/;\n\t}" /etc/nginx/sites-available/default
