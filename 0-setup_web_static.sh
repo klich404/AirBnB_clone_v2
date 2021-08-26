@@ -2,7 +2,7 @@
 #sets up your web servers for the deployment of web_static. It must
 
 #install nginx not installed
-sudo -y update
+sudo apt-get -y update
 sudo apt-get -y install nginx
 
 #create a lot of folders
