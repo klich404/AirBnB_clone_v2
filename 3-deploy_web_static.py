@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-creates and distributes an archive to your web servers, using the function deploy
+creates and distributes an archive to your
+web servers, using the function deploy
 """
 
 from fabric.api import *
@@ -18,6 +19,7 @@ def do_pack():
         return("versions/web_static_{}.tgz".format(date))
     except:
         return None
+
 
 def do_deploy(archive_path):
     """distributes an archive to your web servers"""
@@ -37,6 +39,7 @@ def do_deploy(archive_path):
         return True
     except:
         return False
+
 
 def deploy():
     """creates and distributes an archive to your web servers"""
